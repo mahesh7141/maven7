@@ -22,7 +22,7 @@ pipeline {
         {
             steps 
             {
-                   sh 'scp /var/lib/jenkins/workspace/declarativepipeline1/webapp/target/webapp.war ubuntu@172.31.4.221:/var/lib/tomcat8/webapps/testwebapp.war'
+                   sh 'scp /var/lib/jenkins/workspace/declarativepipeline1/webapp/target/webapp.war ubuntu@172.31.4.221:/var/lib/tomcat9/webapps/testwebapp.war'
             }
         }
         
@@ -45,7 +45,7 @@ pipeline {
             steps 
             {
                 input message: 'need approval from dm! ', submitter: 'routhu'
-         sh 'scp /var/lib/jenkins/workspace/declarativepipeline1/webapp/target/webapp.war ubuntu@172.31.3.58:/var/lib/tomcat8/webapps/prodwebapp.war'
+         sh 'scp /var/lib/jenkins/workspace/declarativepipeline1/webapp/target/webapp.war ubuntu@172.31.3.58:/var/lib/tomcat9/webapps/prodwebapp.war'
         
             }
             
