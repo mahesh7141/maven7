@@ -22,7 +22,7 @@ pipeline {
         {
             steps 
             {
-                  deploy adapters: [tomcat9(credentialsId: 'b86ca0a2-a6bc-4ff8-9a71-388380544eb9', path: '', url: 'http://172.31.10.23:8080')], contextPath: 'mytestapp', war: '**/*.war'
+                   sh 'scp /var/lib/jenkins/workspace/declarativepipeline1/webapp/target/webapp.war ubuntu@172.31.4.221:/var/lib/tomcat8/webapps/testwebapp.war'
             }
         }
         
@@ -45,8 +45,7 @@ pipeline {
             steps 
             {
                 input message: 'need approval from dm! ', submitter: 'routhu'
-         deploy adapters: [tomcat9(credentialsId: 'b86ca0a2-a6bc-4ff8-9a71-388380544eb9', path: '', url: 'http://172.31.10.73:8080')], contextPath: 'myprodapp', war: '**/*.war'
-                 
+         sh 'scp /var/lib/jenkins/workspace/declarativepipeline1/webapp/target/webapp.war ubuntu@172.31.3.58:/var/lib/tomcat8/webapps/prodwebapp.war'
         
             }
             
